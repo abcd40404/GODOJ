@@ -7,6 +7,8 @@
 
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}" type="text/css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -65,6 +67,10 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .content{
+                width: 100%;
+            }
         </style>
     </head>
     <body>
@@ -79,8 +85,17 @@
                     @endif
                 </div>
 
-            <div class="content">
-                <h1> Category page </h1>
+            <div class="content container-fluid">
+                <div class="row">
+                    <div class="dp col-lg-4"><img src="/img/DP.png"></div>
+                    <div class="greedy col-lg-4">2</div>
+                    <div class="graph col-lg-4"><img src="/img/Graph.png"></div>
+                </div>
+                <div class="row">
+                    <div class="math col-lg-4"></div>
+                    <div class="string col-lg-4"><img src="/img/String.png"></div>
+                    <div class="other col-lg-4"></div>
+                </div>
             </div>
         </div>
     </body>
