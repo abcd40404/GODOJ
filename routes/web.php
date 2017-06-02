@@ -28,3 +28,7 @@ Route::get('/probCategory', function () {
 });
 
 Route::POST('/pageAjax', 'pageController@getPage');
+
+Route::get('/problem', function () {
+    return view('problem');
+});

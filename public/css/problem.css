@@ -1,0 +1,45 @@
+.main{
+    color: black;
+    font-size: 20px;
+    /*line-height: 1.6em;*/
+    margin-top: 10px;
+    padding: 10px;
+    height: 100vh;
+}
+
+.toolbar{
+    overflow: hidden;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.toolbar > *{
+    float:left;
+    margin-left: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.problem-page:hover, .submit:hover{
+    cursor: pointer;
+    background: gray;
+}
+
+.problem{
+    font-size: 40px;
+    text-align: center;
+}
+
+.header{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.section-title{
+    font-weight: bold;
+}
+
+.content{
+    margin-left: 15px;
+}
