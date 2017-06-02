@@ -15,15 +15,17 @@ class Problem extends Migration
     {
         Schema::create('problem', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('contest');
+            $table->string('type');
             $table->string('title');
             $table->integer('time');
             $table->integer('memory');
-            $table->string('input');
-            $table->string('output');
             $table->text('content');
             $table->string('inp_spec');
             $table->string('out_spec');
+            $table->dateTime('mtime');
             $table->timestamps();
+            $table->foreign('type')->references('type')->on('category');
         });
     }
 
