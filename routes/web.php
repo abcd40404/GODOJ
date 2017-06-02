@@ -23,6 +23,8 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/prob-category', function () {
-    return view('prob-category');
+Route::get('/probCategory', function () {
+    return view('probCategory');
 });
+
+Route::POST('/pageAjax', 'pageController@getPage');

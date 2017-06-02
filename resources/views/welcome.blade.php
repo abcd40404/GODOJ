@@ -86,7 +86,7 @@
                 </div>
                 <div class="prob-category">
                     <h1>分類題庫</h1>
-                    <a href="{{ url('/prob-category') }}">
+                    <a href="{{ url('/probCategory') }}">
                         GO
                         <!-- 這邊插入圖片 -->
                     </a>

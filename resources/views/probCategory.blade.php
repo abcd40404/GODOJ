@@ -4,11 +4,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}" type="text/css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="/js/category.js"></script>
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
@@ -68,8 +71,8 @@
                 margin-bottom: 30px;
             }
 
-            .content{
-                width: 100%;
+            .dp{
+                background-color: gray;
             }
         </style>
     </head>
@@ -85,18 +88,19 @@
                     @endif
                 </div>
 
-            <div class="content container-fluid">
+            <div class="container-fluid">
                 <div class="row">
-                    <div class="dp col-lg-4"><img src="/img/DP.png"></div>
-                    <div class="greedy col-lg-4">2</div>
-                    <div class="graph col-lg-4"><img src="/img/Graph.png"></div>
+                    <div class="dp col-lg-4"><img src="/img/DP.png">DP</div>
+                    <div class="greedy col-lg-4"><img src="/img/DP.png">Greedy</div>
+                    <div class="graph col-lg-4"><img src="/img/Graph.png">Graph</div>
                 </div>
                 <div class="row">
-                    <div class="math col-lg-4"></div>
+                    <div class="math col-lg-4"><img src="/img/DP.png"></div>
                     <div class="string col-lg-4"><img src="/img/String.png"></div>
-                    <div class="other col-lg-4"></div>
+                    <div class="other col-lg-4"><img src="/img/DP.png"></div>
                 </div>
             </div>
+            <button>123</button>
         </div>
     </body>
 </html>
