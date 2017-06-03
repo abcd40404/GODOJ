@@ -26,3 +26,7 @@ function getPage(type){
         }
     });
 }
+
+function showProblem(data){
+    var list = $("ul");
+}

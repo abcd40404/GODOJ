@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>Laravel</title>
         <link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}" type="text/css">
@@ -68,10 +69,23 @@
                 display: flex;
                 height: 40px;
             }
+
+            .toolbar{
+                overflow: hidden;
+                font-size: 16px;
+                margin-bottom: 5px;
+            }
+
+            .toolbar > *{
+                float:left;
+                margin-left: 20px;
+                border: 1px solid transparent;
+                border-radius: 4px;
+            }
         </style>
     </head>
     <body>
-        <div class="position-ref full-height">
+        <div class="background position-ref full-height">
             <header>
                 <div class="top-right links">
                     @if (Auth::check())

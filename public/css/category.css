@@ -1,0 +1,18 @@
+
+
+main{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+}
+
+.contest-page:hover, .category-page:hover{
+    cursor: pointer;
+    background: gray;
+}
+
+.dp:hover,.greedy:hover,.graph:hover,.math:hover,.string:hover,.other:hover{
+    cursor: pointer;
+    background-color: gray;
+}
