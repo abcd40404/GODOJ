@@ -21,6 +21,7 @@ function getPage(type){
         url: "pageAjax",
         data: { type: type},
         success: function(data){
+            data = JSON.parse(data);
             console.log(data);
             console.log("success");
         }

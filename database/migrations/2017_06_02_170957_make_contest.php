@@ -17,7 +17,7 @@ class MakeContest extends Migration
             $table->increments('id');
             $table->string('contest');
             $table->date('uptime');
-            $table->dataTime('mtime');
+            $table->dateTime('mtime');
             $table->timestamps();
         });
     }

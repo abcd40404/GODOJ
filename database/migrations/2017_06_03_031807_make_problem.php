@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Problem extends Migration
+class MakeProblem extends Migration
 {
     /**
      * Run the migrations.
@@ -16,7 +16,7 @@ class Problem extends Migration
         Schema::create('problem', function (Blueprint $table) {
             $table->increments('id');
             $table->string('contest');
-            $table->string('type');
+            $table->integer('cid')->unsigned();
             $table->string('title');
             $table->integer('time');
             $table->integer('memory');
@@ -25,7 +25,7 @@ class Problem extends Migration
             $table->string('out_spec');
             $table->dateTime('mtime');
             $table->timestamps();
-            $table->foreign('type')->references('type')->on('category');
+            $table->foreign('cid')->references('id')->on('category');
         });
     }
 

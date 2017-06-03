@@ -17,8 +17,25 @@ class MakeCategory extends Migration
             $table->increments('id');
             $table->string('type');
             $table->timestamps();
-            $table->primary('type');
         });
+        DB::table('category')->insert(
+            array('type' => 'dp')
+        );
+        DB::table('category')->insert(
+            array('type' => 'greedy')
+        );
+        DB::table('category')->insert(
+            array('type' => 'graph')
+        );
+        DB::table('category')->insert(
+            array('type' => 'math')
+        );
+        DB::table('category')->insert(
+            array('type' => 'string')
+        );
+        DB::table('category')->insert(
+            array('type' => 'other')
+        );
     }
 
     /**
