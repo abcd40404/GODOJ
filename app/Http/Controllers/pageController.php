@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Problem;
 
 class pageController extends Controller
 {
@@ -14,5 +15,10 @@ class pageController extends Controller
         $cid = $cid->all();
         $problem = DB::table('problem')->where('cid', '=', $cid[0]->id)->get();
         echo json_encode($problem);
+    }
+
+    public function showProblem($pid){
+        $problem = Problem::find($pid);
+        return view('problem', compact('problem'));
     }
 }

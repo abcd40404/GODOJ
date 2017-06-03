@@ -46,8 +46,9 @@ function showProblem(data){
         table.prop('class', 'wrap');
         var contest = $("<span>");
         contest.get(0).innerHTML = data[i]['contest'];
-        var title = $("<span>");
+        var title = $("<a>");
         title.prop('class', 'probtitle');
+        title.prop('href', './problem/'+id);
         title.get(0).innerHTML = data[i]['title'];
         table.append(contest);
         table.append(title);
