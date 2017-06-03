@@ -16,3 +16,38 @@ main{
     cursor: pointer;
     background-color: gray;
 }
+
+ul, li{
+    list-style-type: none;
+    padding: 0px;
+}
+
+.problem-wrap{
+    width: 500px;
+    min-height: 500px;
+    border: 1px solid black;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.problem-list{
+    line-height: 1.6em;
+    color: black;
+    border-bottom: 1px solid black;
+}
+
+.problem-list:hover{
+    cursor: pointer;
+    background: gray;
+}
+
+.wrap{
+    align-items: center;
+    display: flex;
+    margin-left: 5px;
+}
+
+.probtitle{
+    margin-left: 50px;
+}

@@ -1,97 +1,23 @@
-<!doctype html>
-<html lang="{{ config('app.locale') }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layout')
 
-        <title>Laravel</title>
-        <link rel="stylesheet" href="{{ URL::asset('css/welcome.css') }}" type="text/css">
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('head')
+    <link rel="stylesheet" href="css/welcome.css" type="text/css">
+@stop
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-            .news{
-              border-color:#ddd;
-              border:1px solid black;
-            }
-            .full-height {
-                height: 100vh;
-            }
+@section('content')
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
-                    @endif
-                </div>
-
-            <div class="content">
-                <div class="news">
-                    <h1>News</h1>
-                    <p>hello</p>
-                </div>
-                <div class="prob-category">
-                    <h1>分類題庫</h1>
-                    <a href="{{ url('/probCategory') }}">
-                        GO
-                        <!-- 這邊插入圖片 -->
-                    </a>
-                </div>
-            </div>
+    <div class="main">
+        <div class="news">
+            <h1>News</h1>
+            <p>hello</p>
         </div>
-    </body>
-</html>
+        <div class="prob-category">
+            <h1>分類題庫</h1>
+            <a href="{{ url('/probCategory') }}">
+                GO
+                <!-- 這邊插入圖片 -->
+            </a>
+        </div>
+    </div>
+
+@stop
