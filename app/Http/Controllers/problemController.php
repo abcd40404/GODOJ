@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Problem;
 
 class problemController extends Controller
 {
     public function judge($pid){
-        echo $_POST['language'];
+        $lang = $_POST['language'];
+        if($lang = 'cpp')
+            $lang = 'C++';
+        else if($lang = 'cpp11')
+            $lang = 'C++11';
+        $prob = Problem::find($pid)->title;
         // print_r($_POST['name']);
         $code = $_POST['code'];
         $compileFIle = fopen("code/tmp.cpp", "w");
@@ -24,13 +30,14 @@ class problemController extends Controller
 
             $res = shell_exec('code/compare code/tmp.ou code/testcase/1.ou');
             if(isset($res)){
-                echo "Wrong Answer";
+                $msg = "Wrong Answer";
             }
             else{
-                echo "Accepted";
+                $msg = "Accepted";
             }
 
         }
+        return view('result', compact('prob', 'lang', 'msg'));
         // echo $code;
     }
 }
