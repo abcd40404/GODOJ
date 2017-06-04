@@ -21,4 +21,8 @@ class pageController extends Controller
         $problem = Problem::find($pid);
         return view('problem', compact('problem'));
     }
+
+    public function submit($pid){
+        return view('submit', compact('pid'));
+    }
 }

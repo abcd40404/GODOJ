@@ -30,3 +30,7 @@ Route::get('/probCategory', function () {
 Route::POST('/pageAjax', 'pageController@getPage');
 
 Route::get('/problem/{pid}', 'pageController@showProblem');
+
+Route::get('/problem/{pid}/submit', 'pageController@submit');
+
+Route::POST('/problem/{pid}/problemJudge', 'problemController@judge');

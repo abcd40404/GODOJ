@@ -8,7 +8,7 @@
     <div class="main">
         <div class="toolbar">
             <div class="problem-page"><a href="/probCategory"> Problem </a></div>
-            <div class="submit"> Submit Code </div>
+            <div class="submit"><a href="{{$problem->id}}/submit"> Submit Code </a></div>
         </div>
         <div class="problem"> {{ $problem->title }}</div>
         <div class="header">
