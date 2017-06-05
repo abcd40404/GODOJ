@@ -21,7 +21,7 @@
             <input type="hidden" name="_token" value="<?php echo csrf_token();?>">
             <input type="radio" name="language" value="cpp" /><span> C++ </span><br>
             <input type="radio" name="language" value="cpp11"/><span> C++11 </span><br>
-            <textarea name="code">123</textarea><br>
+            <textarea name="code"></textarea><br>
             <button class="btn btn-primary"> 提交 </button>
         </form>
     </div>

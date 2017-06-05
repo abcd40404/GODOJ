@@ -27,6 +27,10 @@ Route::get('/probCategory', function () {
     return view('probCategory');
 });
 
+Route::get('/about', function(){
+    return view('about');
+});
+
 Route::POST('/pageAjax', 'pageController@getPage');
 
 Route::get('/problem/{pid}', 'pageController@showProblem');

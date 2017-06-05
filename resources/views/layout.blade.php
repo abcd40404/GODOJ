@@ -66,7 +66,7 @@
 
             header{
                 display: flex;
-                height: 40px;
+                height: 15vh;
             }
 
             .toolbar{

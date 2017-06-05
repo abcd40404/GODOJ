@@ -13,7 +13,7 @@ class MakeContest extends Migration
      */
     public function up()
     {
-        Schema::create('contest', function (Blueprint $table) {
+        Schema::create('contests', function (Blueprint $table) {
             $table->increments('id');
             $table->string('contest');
             $table->date('uptime');

@@ -13,7 +13,7 @@ class pageController extends Controller
         $cid = DB::table('category')->select('id')->where('type', '=', $type)->get();
         //collection轉為array
         $cid = $cid->all();
-        $problem = DB::table('problem')->where('cid', '=', $cid[0]->id)->get();
+        $problem = DB::table('problems')->where('cid', '=', $cid[0]->id)->get();
         echo json_encode($problem);
     }
 

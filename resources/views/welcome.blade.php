@@ -18,6 +18,10 @@
                 <!-- 這邊插入圖片 -->
             </a>
         </div>
+        <div class="about">
+            About me
+            <a href="/about"> GO </a>
+        </div>
     </div>
 
 @stop
