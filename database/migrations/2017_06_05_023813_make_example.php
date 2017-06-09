@@ -20,7 +20,7 @@ class MakeExample extends Migration
             $table->string('output');
             $table->dateTime('mtime');
             $table->timestamps();
-            $table->foreign('pid')->references('id')->on('problem');
+            $table->foreign('pid')->references('id')->on('problems');
         });
     }
 

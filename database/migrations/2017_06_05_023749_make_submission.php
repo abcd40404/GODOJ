@@ -22,8 +22,8 @@ class MakeSubmission extends Migration
             $table->string('result');
             $table->dateTime('mtime');
             $table->timestamps();
-            $table->foreign('pid')->references('id')->on('problem');
-            $table->foreign('uid')->references('id')->on('user');
+            $table->foreign('pid')->references('id')->on('problems');
+            $table->foreign('uid')->references('id')->on('users');
         });
     }
 
