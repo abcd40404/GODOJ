@@ -11,17 +11,12 @@
 |
 */
 
+use App\Category;
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/login', function () {
-//     return view('login');
-// });
-//
-// Route::get('/register', function () {
-//     return view('register');
-// });
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
@@ -29,9 +24,15 @@ Route::group(['middleware' => 'auth'], function(){
         return view('probCategory');
     });
 
-    Route::get('/about', function(){
-        return view('about');
+    Route::get('/about', 'pageController@getHomePage');
+
+    Route::get('/about/addProblem', function(){
+        $categories = Category::all();
+        // echo $categories;
+        return view('homepage.addProblem', compact('categories'));
     });
+
+    Route::POST('/about/insertProblem', 'problemController@insertProblem');
 
     Route::POST('/pageAjax', 'pageController@getPage');
 

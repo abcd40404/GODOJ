@@ -16,6 +16,7 @@ class MakeProblem extends Migration
         Schema::create('problems', function (Blueprint $table) {
             $table->increments('id');
             $table->string('contest');
+            $table->integer('uid')->unsigned();
             $table->integer('cid')->unsigned();
             $table->string('title');
             $table->integer('time');
@@ -25,10 +26,11 @@ class MakeProblem extends Migration
             $table->string('out_spec');
             $table->dateTime('mtime');
             $table->timestamps();
+            $table->foreign('uid')->references('id')->on('users');
             $table->foreign('cid')->references('id')->on('category');
         });
         DB::table('problems')->insert(
-            array('contest' => '1', 'cid' => '4', 'title' => 'Fibonacci Number', 'time' => '1', 'memory' => '256', 'content' => 'Output the fibonacci number according to the input n', 'inp_spec' => '1 ≦ n ≦ 50', 'out_spec' => 'output the correspond fibonacci number', 'mtime' => 'NOW()')
+            array('contest' => '1', 'uid' => '1', 'cid' => '4', 'title' => 'Fibonacci Number', 'time' => '1', 'memory' => '256', 'content' => 'Output the fibonacci number according to the input n', 'inp_spec' => '1 ≦ n ≦ 50', 'out_spec' => 'output the correspond fibonacci number', 'mtime' => 'NOW()')
         );
     }
 

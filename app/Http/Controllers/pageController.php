@@ -3,11 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Problem;
 
 class pageController extends Controller
 {
+    public function getHomePage(){
+        $user = Auth::user();
+        if($user->usertype == 1){
+            return view("homepage.admin");
+        }
+        else if($user->usertype == 3){
+            return view("homepage.user");
+        }
+        // return view("home");
+    }
     public function getPage(){
         $type = $_POST['type'];
         $cid = DB::table('category')->select('id')->where('type', '=', $type)->get();

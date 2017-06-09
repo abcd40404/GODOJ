@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Problem;
+use App\Category;
+use Carbon\Carbon;
 
 class problemController extends Controller
 {
@@ -39,5 +42,23 @@ class problemController extends Controller
         }
         return view('result', compact('prob', 'lang', 'msg'));
         // echo $code;
+    }
+
+    function insertProblem(){
+        $uid = Auth::user()->id;
+        $cid = Category::where('type', $_POST['category'])->first()->id;
+        $Problem = new Problem;
+        $Problem->contest = 1;
+        $Problem->uid = $uid;
+        $Problem->cid = $cid;
+        $Problem->title = $_POST['title'];
+        $Problem->time = $_POST['time'];
+        $Problem->memory = $_POST['memory'];
+        $Problem->content = $_POST['content'];
+        $Problem->inp_spec = $_POST['inp_spec'];
+        $Problem->out_spec = $_POST['out_spec'];
+        $Problem->mtime = Carbon::now('Asia/Taipei');
+        $Problem->save();
+        return redirect('about');
     }
 }

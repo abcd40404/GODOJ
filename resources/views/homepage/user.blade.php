@@ -2,11 +2,6 @@
 
 @section('head')
     <style>
-        .background{
-            align-items: center;
-            display: flex;
-            justify-content: center;
-        }
         header{
             height: 15vh;
         }
