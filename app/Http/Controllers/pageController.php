@@ -6,16 +6,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Problem;
+use App\Category;
 
 class pageController extends Controller
 {
     public function getHomePage(){
         $user = Auth::user();
+        $categories = Category::all();
         if($user->usertype == 1){
-            return view("homepage.admin");
+            return view("homepage.admin", compact('categories'));
         }
         else if($user->usertype == 3){
-            return view("homepage.user");
+            return view("homepage.user", compact('categories'));
         }
         // return view("home");
     }
