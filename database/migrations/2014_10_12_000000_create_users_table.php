@@ -25,6 +25,9 @@ class CreateUsersTable extends Migration
         DB::table('users')->insert(
             array('name' => 'admin', 'email' => 'admin@a.a', 'password' => '$2y$10$pdLW8I/dgtzvIDbe5I.Atu.fLxkr2A.2sLc3Ywou3g.5zD/TmwMca', 'usertype' => '1')
         );
+        DB::table('users')->insert(
+            array('name' => 'test', 'email' => 't@t.t', 'password' => '$2y$10$uxsqIDP7UNihJ2F5W93wR.i5wmDHhNGFtRmpMcj1PGJ1Y2mYYl.iG', 'usertype' => '2')
+        );
     }
 
     /**

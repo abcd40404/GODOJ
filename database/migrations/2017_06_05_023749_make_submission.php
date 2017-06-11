@@ -17,7 +17,8 @@ class MakeSubmission extends Migration
             $table->increments('id');
             $table->integer('pid')->unsigned();
             $table->integer('uid')->unsigned();
-            $table->integer('time');
+            $table->string('lang');
+            $table->double('time');
             $table->integer('memory');
             $table->string('result');
             $table->dateTime('mtime');

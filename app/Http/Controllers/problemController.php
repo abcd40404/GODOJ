@@ -6,15 +6,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Problem;
 use App\Category;
+use App\Submission;
 use Carbon\Carbon;
 
 class problemController extends Controller
 {
     public function judge($pid){
         $lang = $_POST['language'];
-        if($lang = 'cpp')
+        if($lang == 'cpp')
             $lang = 'C++';
-        else if($lang = 'cpp11')
+        else if($lang == 'cpp11')
             $lang = 'C++11';
         $prob = Problem::find($pid)->title;
         // print_r($_POST['name']);
@@ -27,21 +28,35 @@ class problemController extends Controller
             echo $res;
         }
         else{
-            $str = 'code/tmp.out < code/testcase/' .$pid. '.in > code/tmp.ou';
+            $str = 'code/Testbox ' .$pid. '.in';
             $res = shell_exec($str);
-            // echo $str;
-
-            $res = shell_exec('code/compare code/tmp.ou code/testcase/1.ou');
-            if(isset($res)){
-                $msg = "Wrong Answer";
+            if($res == 'TLE'){
+                $msg = 'Time Limit Exceeded';
+                $time = 1;
             }
             else{
-                $msg = "Accepted";
+                $time = $res;
+                $res = shell_exec('code/compare code/tmp.ou code/testcase/1.ou');
+                if(isset($res)){
+                    $msg = "Wrong Answer";
+                }
+                else{
+                    $msg = "Accepted";
+                }
             }
 
         }
-        return view('result', compact('prob', 'lang', 'msg'));
-        // echo $code;
+        // echo $res;
+        $Submission = new Submission;
+        $Submission->pid = $pid;
+        $Submission->uid = Auth::user()->id;
+        $Submission->lang = $lang;
+        $Submission->time = doubleval($time);
+        $Submission->memory = 1;
+        $Submission->result = $msg;
+        $Submission->mtime = Carbon::now('Asia/Taipei');
+        $Submission->save();
+        return redirect('problem/'.$pid.'/result');
     }
 
     function insertProblem(){
@@ -60,5 +75,12 @@ class problemController extends Controller
         $Problem->mtime = Carbon::now('Asia/Taipei');
         $Problem->save();
         return redirect('about');
+    }
+
+    function result($pid){
+        $uid = Auth::user()->id;
+        $problem = Problem::find($pid);
+        $submissions = Submission::whereRaw('pid='.$pid.' AND uid='.$uid)->orderBy('mtime', 'desc')->get();
+        return view('result', compact('problem', 'submissions'));
     }
 }

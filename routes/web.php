@@ -53,6 +53,8 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::POST('/problem/{pid}/problemJudge', 'problemController@judge');
 
+    Route::get('/problem/{pid}/result', 'problemController@result');
+
 
     // Route::get('/home', 'HomeController@index')->name('home');
 
