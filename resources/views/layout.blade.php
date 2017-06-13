@@ -27,10 +27,7 @@
                 height: 100vh;
                 line-height: 1.6em;
             }
-            .news{
-              border-color:#ddd;
-              border:1px solid black;
-            }
+
             .full-height {
                 height: 100vh;
             }
