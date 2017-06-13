@@ -39,6 +39,10 @@ Route::group(['middleware' => 'auth'], function(){
 
     Route::get('/about/accounts/edit', 'adminController@edit');
 
+    Route::get('/about/accounts/addAccount', 'adminController@addAccount');
+
+    Route::POST('/about/accounts/insertAccount', 'adminController@insertAccount');
+
     Route::POST('/about/accounts/updateAccount', 'adminController@updateAccount');
     //ajax
     Route::get('/about/accounts/deleteAccount', 'adminController@deleteAccount');

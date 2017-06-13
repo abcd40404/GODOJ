@@ -16,6 +16,9 @@ class pageController extends Controller
         if($user->usertype == 1){
             return view("homepage.admin", compact('categories'));
         }
+        else if($user->usertype == 2){
+            return view("homepage.author", compact('categories'));
+        }
         else if($user->usertype == 3){
             return view("homepage.user", compact('categories'));
         }

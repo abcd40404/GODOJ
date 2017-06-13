@@ -7,6 +7,27 @@ use app\User;
 
 class adminController extends Controller
 {
+
+    public function addAccount(){
+        return view("homepage.addAccount");
+    }
+
+    public function insertAccount(){
+        if($_POST['usertype'] == '管理員')
+            $usertype = 1;
+        else if($_POST['usertype'] == '作者')
+            $usertype = 2;
+        else if($_POST['usertype'] == '使用者')
+            $usertype = 3;
+        $user = new User;
+        $user->name = $_POST['name'];
+        $user->email = $_POST['email'];
+        $user->password = bcrypt($_POST['password']);
+        $user->usertype = $usertype;
+        $user->save();
+        return redirect('about/accounts');
+    }
+
     public function edit(){
         $uid = $_GET['uid'];
         $user = User::find($uid);
