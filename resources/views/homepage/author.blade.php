@@ -17,15 +17,14 @@
             width: 600px;
         }
         .problem{
-            border: 1px solid black;
-            border-radius: 4px;
             width: 200px;
             height: 200px;
             margin-left: 50px;
         }
         .problem:hover{
             cursor: pointer;
-            background-color: green;
+            background-color: #4e4e4e;
+            border-radius: 4px;
         }
 
     </style>
@@ -41,7 +40,9 @@
 @section('content')
     <main>
         <div class="tool">
-            <div class="problem">題目管理</div>
+            <div class="problem">
+                <img src="/img/PROBLEMMANAGE.png">
+            </div>
         </div>
         <div class="status">
             <span>解題狀況</span>
@@ -56,7 +57,8 @@
                     @foreach($categories as $category)
                         <tr>
                             <td>{{$category->type}}</td>
-                            <td>0</td>
+                            <td>{{App\Submission::whereIn('pid', App\Problem::where('cid', $category->id)->select('id')->get())->whereRaw('uid = '.$uid.' AND result = "Accepted"')->distinct('pid')->count('pid')
+}}/{{App\Problem::where('cid', $category->id)->count()}}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -68,12 +70,40 @@
                 <thead>
                     <tr>
                         <th class="table-content">題目</th>
+                        <th class="table-content">語言</th>
                         <th class="table-content">用時</th>
                         <th class="table-content">記憶體</th>
                         <th class="table-content">結果</th>
                         <th class="table-content">提交時間</th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach($submissions as $submission)
+                        <tr>
+                            <td>{{App\Problem::find($submission->pid)->title}}</td>
+                            <td>{{$submission->lang}}</td>
+                            <td>{{$submission->time}} s</td>
+                            <td>{{$submission->memory}} MB</td>
+                            <td class="res">{{$submission->result}}</td>
+                            <td>{{$submission->mtime}}</td>
+                        </tr>
+                    @endforeach
+                    <script>
+                        var dmsg = $(".res");
+
+                        for(var i = 0; i < dmsg.length; i++){
+                            var msg = dmsg[i].innerHTML;
+                            if(msg.match('Accepted'))
+                                dmsg[i].style.color = 'green';
+                            else if (msg.match('Wrong Answer'))
+                                dmsg[i].style.color = 'red';
+                            else if(msg.match('Time Limit Exceeded'))
+                                dmsg[i].style.color = '#0808FF';
+                            else if(msg.match('Compilation Error'))
+                                dmsg[i].style.color = '#868609';
+                        }
+                    </script>
+                </tbody>
             </table>
         </div>
     </main>

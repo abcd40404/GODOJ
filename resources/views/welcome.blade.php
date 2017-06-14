@@ -2,33 +2,28 @@
 
 @section('head')
     <style>
-        .news{
+        .title{
             width: 50%;
             margin: 0px auto;
             text-align: center;
             margin-bottom: 10px;
         }
-        .table{
+        .news{
             width: 800px;
-            height: 600px;
+            min-height: 300px;
             margin: 0px auto;
         }
+
         .content{
             width: 100%;
             align-items: center;
             display: flex;
             justify-content: center;
         }
-        .prob-category, .about{
-            border: 1px solid black;
-            border-radius: 4px;
-            width: 200px;
-            height: 200px;
-            margin-top: 200px;
-            margin-left: 30px;
-        }
-        .prob-category:hover, .about:hover{
+        .prob-category:hover, .about:hover, .chat:hover{
             cursor: pointer;
+            background-color: #4e4e4e;
+            border-radius: 4px;
         }
     </style>
     <script>
@@ -39,29 +34,38 @@
         $(".about").click(function(){
             location.href = "/about";
         });
+        $(".chat").click(function(){
+            location.href = "/chat";
+        });
     });
+
     </script>
 @stop
 
 @section('content')
 
     <main>
-        <h2 class="news"> News </h2>
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th> 等級 </th>
-                    <th> 主題 </th>
-                    <th> 發佈時間 </th>
-                </tr>
-            </thead>
-        </table>
+        <h2 class="title"> News </h2>
+        <div class="news">
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th> 等級 </th>
+                        <th> 主題 </th>
+                        <th> 發佈時間 </th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <div class="content">
             <div class="prob-category">
-                <span>分類題庫</span>
+                <img src="/img/PROBLEMSET.png">
             </div>
             <div class="about">
-                <span>關於我</span>
+                <img src="/img/ABOUTME.png">
+            </div>
+            <div class="chat">
+                <img src="/img/CHATROOM.png">
             </div>
         </div>
     </main>

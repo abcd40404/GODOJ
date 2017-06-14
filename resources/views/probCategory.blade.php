@@ -14,14 +14,14 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <div class="dp col-lg-4"><img src="/img/DP.png">DP</div>
-                <div class="greedy col-lg-4"><img src="/img/DP.png">Greedy</div>
-                <div class="graph col-lg-4"><img src="/img/Graph.png">Graph</div>
+                <div class="dp col-lg-4"><img src="/img/DP.png"></div>
+                <div class="greedy col-lg-4"><img src="/img/GREEDY.png"></div>
+                <div class="graph col-lg-4"><img src="/img/GRAPH.png"></div>
             </div>
             <div class="row">
-                <div class="math col-lg-4"><img src="/img/DP.png"></div>
-                <div class="string col-lg-4"><img src="/img/String.png"></div>
-                <div class="other col-lg-4"><img src="/img/DP.png"></div>
+                <div class="math col-lg-4"><img src="/img/MATH.png"></div>
+                <div class="string col-lg-4"><img src="/img/STRING.png"></div>
+                <div class="other col-lg-4"><img src="/img/OTHER.png"></div>
             </div>
         </div>
     </main>

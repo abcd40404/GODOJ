@@ -1,10 +1,8 @@
 
-
 main{
     align-items: center;
     display: flex;
     justify-content: center;
-    height: 100vh;
 }
 
 .contest-page:hover, .category-page:hover{
@@ -14,8 +12,11 @@ main{
 
 .dp:hover,.greedy:hover,.graph:hover,.math:hover,.string:hover,.other:hover{
     cursor: pointer;
-    background-color: gray;
+    background-color: #4e4e4e;
+    border-radius: 4px;
 }
+
+/*替換後*/
 
 ul, li{
     list-style-type: none;
@@ -25,7 +26,8 @@ ul, li{
 .problem-wrap{
     width: 500px;
     min-height: 500px;
-    border: 1px solid black;
+    border: 2px solid #7b7878;
+    border-radius: 4px;
     font-size: 20px;
     font-weight: 600;
     text-decoration: none;
@@ -34,7 +36,7 @@ ul, li{
 .problem-list{
     line-height: 1.6em;
     color: black;
-    border-bottom: 1px solid black;
+    border-bottom: 2px solid #7b7878;
 }
 
 .problem-list:hover{

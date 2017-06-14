@@ -7,22 +7,24 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use App\Problem;
 use App\Category;
+use App\Submission;
 
 class pageController extends Controller
 {
     public function getHomePage(){
         $user = Auth::user();
+        $uid = $user->id;
         $categories = Category::all();
+        $submissions = Submission::where('uid', $user->id)->get();
         if($user->usertype == 1){
-            return view("homepage.admin", compact('categories'));
+            return view("homepage.admin", compact('uid', 'categories', 'submissions'));
         }
         else if($user->usertype == 2){
-            return view("homepage.author", compact('categories'));
+            return view("homepage.author", compact('uid', 'categories', 'submissions'));
         }
         else if($user->usertype == 3){
-            return view("homepage.user", compact('categories'));
+            return view("homepage.user", compact('uid', 'categories', 'submissions'));
         }
-        // return view("home");
     }
     public function getPage(){
         $type = $_POST['type'];

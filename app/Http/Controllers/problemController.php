@@ -25,7 +25,9 @@ class problemController extends Controller
         fclose($compileFIle);
         $res =  shell_exec('g++ code/tmp.cpp -o code/tmp.out 2>&1 1> /dev/null');
         if(isset($res)){
-            echo $res;
+            // echo $res;
+            $msg = "Compilation Error";
+            $time = 0;
         }
         else{
             $str = 'code/Testbox ' .$pid. '.in';

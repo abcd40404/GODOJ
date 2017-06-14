@@ -38,7 +38,7 @@
                         <td>{{$problem->title}}</td>
                         <td>{{$submission->lang}}</td>
                         <td>{{$submission->time}} sec</td>
-                        <td>MB</td>
+                        <td>{{$submission->memory}} MB</td>
                         <td class="msg">{{$submission->result}}</td>
                         <td>{{$submission->mtime}}</td>
                     <tr>
@@ -54,6 +54,8 @@
                                 dmsg[i].style.color = 'red';
                             else if(msg.match('Time Limit Exceeded'))
                                 dmsg[i].style.color = '#0808FF';
+                            else if(msg.match('Compilation Error'))
+                                dmsg[i].style.color = '#868609';
                         }
                     </script>
                 </tbody>

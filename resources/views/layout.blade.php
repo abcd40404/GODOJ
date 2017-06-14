@@ -24,11 +24,15 @@
                 margin: 0;
             }
             main{
-                height: 100vh;
+                min-height: 85vh;
                 line-height: 1.6em;
             }
+            img{
+                width: 200px;
+                height: 200px;
+            }
 
-            .full-height {
+            .full-height{
                 height: 100vh;
             }
 

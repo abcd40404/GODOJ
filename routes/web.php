@@ -21,6 +21,15 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function(){
+    Route::get('chat', function(){
+        $user = Auth::user();
+        return view('chat', compact('user'));
+    });
+
+    // Route::get('127.0.0.1:3000', function(){
+    //     return view('chat');
+    // });
+
     Route::get('/probCategory', function () {
         return view('probCategory');
     });
