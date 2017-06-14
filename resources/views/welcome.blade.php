@@ -55,6 +55,15 @@
                         <th> 發佈時間 </th>
                     </tr>
                 </thead>
+                <tbody>
+                    @foreach($news as $new)
+                        <tr>
+                            <td>{{$new->level}}</td>
+                            <td>{{$new->title}}</td>
+                            <td>{{$new->mtime}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
         <div class="content">

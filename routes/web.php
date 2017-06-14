@@ -15,7 +15,8 @@ use App\Category;
 use App\User;
 
 Route::get('/', function () {
-    return view('welcome');
+    $news = App\News::all();
+    return view('welcome', compact('news'));
 });
 
 Auth::routes();
@@ -26,10 +27,6 @@ Route::group(['middleware' => 'auth'], function(){
         return view('chat', compact('user'));
     });
 
-    // Route::get('127.0.0.1:3000', function(){
-    //     return view('chat');
-    // });
-
     Route::get('/probCategory', function () {
         return view('probCategory');
     });
@@ -38,7 +35,6 @@ Route::group(['middleware' => 'auth'], function(){
     ////
     Route::get('/about/addProblem', function(){
         $categories = Category::all();
-        // echo $categories;
         return view('homepage.addProblem', compact('categories'));
     });
     Route::get('/about/accounts', function(){
